@@ -15,6 +15,7 @@ using HtmlAgilityPack;
 using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 using ZincBrowser.Properties;
 using Siticone.UI.WinForms;
+using Microsoft.Web.WebView2.Core;
 
 namespace ZincBrowser
 {
@@ -32,51 +33,6 @@ namespace ZincBrowser
             this.url = url;
             this.page = page;
             this.addr = addr;
-        }
-
-        public static async Task<Image> GetFaviconAsIconAsync(string websiteUrl)
-        {
-            try
-            {
-                using (HttpClient client = new HttpClient())
-                {
-                    // Download the HTML content of the website asynchronously
-                    string htmlContent = await client.GetStringAsync(websiteUrl);
-
-                    // Parse the HTML to find the favicon link
-                    HtmlDocument htmlDoc = new HtmlDocument();
-                    htmlDoc.LoadHtml(htmlContent);
-
-                    string faviconUrl = null;
-
-                    // Find the favicon link tag in the HTML
-                    HtmlNode faviconNode = htmlDoc.DocumentNode.SelectSingleNode("//link[@rel='icon' or @rel='shortcut icon']");
-                    if (faviconNode != null)
-                    {
-                        // Extract the favicon URL
-                        faviconUrl = faviconNode.GetAttributeValue("href", null);
-                    }
-
-                    if (!string.IsNullOrEmpty(faviconUrl))
-                    {
-                        // Download the favicon ICO file asynchronously
-                        byte[] faviconBytes = await client.GetByteArrayAsync(faviconUrl);
-                        using (MemoryStream stream = new MemoryStream(faviconBytes))
-                        {
-                            return new Icon(stream).ToBitmap();
-                        }
-                    }
-                    else
-                    {
-                        throw new Exception("Favicon URL not found");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-                return null;
-            }
         }
 
         public static async Task<string> GetPageTitleAsync(string url)
@@ -118,9 +74,12 @@ namespace ZincBrowser
 
         private async void TabHandle_Load(object sender, EventArgs e)
         {
-            favicon.BackgroundImage = await GetFaviconAsIconAsync(url);
+            // TODO: add favicons
             main.Text = await GetPageTitleAsync(url);
-            Width = Parent.Width - 10;
+            main.Width = Parent.Width - 20 - cls.Width;
+            cls.Location = new Point(main.Width + 10, cls.Location.Y);
+            cls.Height = main.Height;
+            cls.Width = cls.Height;
             f.setButtonColors(main);
             f.setButtonColors(cls);
 
@@ -138,6 +97,7 @@ namespace ZincBrowser
         {
             page.BringToFront();
             addr.Text = page.Source.ToString();
+            f.currentPage = page;
         }
 
         private void close_Click(object sender, EventArgs e)

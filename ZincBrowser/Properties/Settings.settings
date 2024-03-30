@@ -3,25 +3,25 @@
   <Profiles />
   <Settings>
     <Setting Name="BorderColor_R" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">76</Value>
+      <Value Profile="(Default)">142</Value>
     </Setting>
     <Setting Name="BorderColor_G" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">139</Value>
+      <Value Profile="(Default)">104</Value>
     </Setting>
     <Setting Name="BorderColor_B" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">245</Value>
+      <Value Profile="(Default)">255</Value>
     </Setting>
     <Setting Name="BaseTransp" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="PanelTint_R" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">76</Value>
+      <Value Profile="(Default)">101</Value>
     </Setting>
     <Setting Name="PanelTint_G" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">139</Value>
+      <Value Profile="(Default)">74</Value>
     </Setting>
     <Setting Name="PanelTint_B" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">245</Value>
+      <Value Profile="(Default)">181</Value>
     </Setting>
     <Setting Name="BorderThickness" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
@@ -48,13 +48,13 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="AccentColor_R" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">76</Value>
+      <Value Profile="(Default)">162</Value>
     </Setting>
     <Setting Name="AccentColor_G" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">139</Value>
+      <Value Profile="(Default)">104</Value>
     </Setting>
     <Setting Name="AccentColor_B" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">245</Value>
+      <Value Profile="(Default)">255</Value>
     </Setting>
   </Settings>
 </SettingsFile>

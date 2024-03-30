@@ -106,6 +106,7 @@ namespace ZincBrowser
                 backward.Enabled = false;
                 zoomin.Enabled = false;
                 zoomout.Enabled = false;
+                bookmarkadd.Enabled = false;
             }
             else
             {
@@ -120,6 +121,8 @@ namespace ZincBrowser
                 reload.Enabled = true;
                 zoomin.Enabled = true;
                 zoomout.Enabled = true;
+                zoomlbl.Text = (currentPage.ZoomFactor * 100).ToString() + "%"; // convert zoomfactor max 2 to 200 and add %
+                bookmarkadd.Enabled = true;
             }
         }
 
@@ -196,6 +199,8 @@ namespace ZincBrowser
 
             zoomout.Size = zoomin.Size;
             zoomout.Location = new Point(zoomin.Location.X - 5 - zoomout.Width, 5);
+
+            zoomlbl.Location = new Point(zoomout.Location.X - 5 - zoomout.Width, (zoomlbl.Parent.Height / 2) - (zoomlbl.Height / 2));
 
             bookmarks.Size = zoomout.Size;
             bookmarks.Location = new Point(5, 5);
@@ -369,22 +374,23 @@ namespace ZincBrowser
                 Menu_Customisation mc = new Menu_Customisation();
                 pagearea.Controls.Add(mc);
                 mc.Dock = DockStyle.Fill;
+                mc.BringToFront();
             }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // TODO: add hsitory saving or something idk
+            System.IO.File.WriteAllLines(".\\history.ln", history);
         }
 
         private void zoomin_Click(object sender, EventArgs e)
         {
-            currentPage.ZoomFactor = currentPage.ZoomFactor + 0.1; // was a slider but removed because im was too dumb, TODO: readd slider
+            currentPage.ZoomFactor = currentPage.ZoomFactor + 0.05; // WE ARE NOT ADDING A SLIDER TOO MANY PROBLEMS
         }
 
         private void zoomout_Click(object sender, EventArgs e)
         {
-            currentPage.ZoomFactor = currentPage.ZoomFactor - 0.1;
+            currentPage.ZoomFactor = currentPage.ZoomFactor - 0.05;
         }
     }
 }

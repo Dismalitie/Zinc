@@ -25,7 +25,7 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("76")]
+        [global::System.Configuration.DefaultSettingValueAttribute("142")]
         public int BorderColor_R {
             get {
                 return ((int)(this["BorderColor_R"]));
@@ -37,7 +37,7 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("139")]
+        [global::System.Configuration.DefaultSettingValueAttribute("104")]
         public int BorderColor_G {
             get {
                 return ((int)(this["BorderColor_G"]));
@@ -49,7 +49,7 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("245")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255")]
         public int BorderColor_B {
             get {
                 return ((int)(this["BorderColor_B"]));
@@ -73,7 +73,7 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("76")]
+        [global::System.Configuration.DefaultSettingValueAttribute("101")]
         public int PanelTint_R {
             get {
                 return ((int)(this["PanelTint_R"]));
@@ -85,7 +85,7 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("139")]
+        [global::System.Configuration.DefaultSettingValueAttribute("74")]
         public int PanelTint_G {
             get {
                 return ((int)(this["PanelTint_G"]));
@@ -97,7 +97,7 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("245")]
+        [global::System.Configuration.DefaultSettingValueAttribute("181")]
         public int PanelTint_B {
             get {
                 return ((int)(this["PanelTint_B"]));
@@ -205,7 +205,7 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("76")]
+        [global::System.Configuration.DefaultSettingValueAttribute("162")]
         public int AccentColor_R {
             get {
                 return ((int)(this["AccentColor_R"]));
@@ -217,7 +217,7 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("139")]
+        [global::System.Configuration.DefaultSettingValueAttribute("104")]
         public int AccentColor_G {
             get {
                 return ((int)(this["AccentColor_G"]));
@@ -229,7 +229,7 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("245")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255")]
         public int AccentColor_B {
             get {
                 return ((int)(this["AccentColor_B"]));
