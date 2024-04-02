@@ -4,13 +4,17 @@ A web browser, built for personalisation.
 > [!CAUTION]
 > This version is very likely to break, has a bunch of missing features and a crappy, uncommented codebase.
 
-# Changelog: `r1b_patch1`
+# Changelog: `r2b`
 
 ```ini
-[+] TabHandle scaling for low and high DPIs
-[+] ZoomFactor controls
-[+] MenuCustomization UC now shows above tabs
-[-] Crashing when closing lots of tabs
+[+] Extracted Personalisation menu to a settings window
+[+] Improved TabHandles loading
+[+] Extracted setButtonColors() to ColorMgr
+[+] Extracted setPanelColors() to ColorMgr
+[+] Slight UI redesign
+[+] History, bookmarks and theme staging
+[+] Fixed search engine
+[-] Useless caches
 ```
 
 # Todo
@@ -19,5 +23,4 @@ A web browser, built for personalisation.
 [+] add history
 [+] add incognito mode
 [+] bookmarks
-[+] installer
 ```

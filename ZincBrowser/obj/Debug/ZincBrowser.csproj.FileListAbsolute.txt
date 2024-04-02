@@ -25,3 +25,6 @@ X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\HtmlAgilityPack.pdb
 X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\HtmlAgilityPack.xml
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.TabHandle.resources
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.Menu_Customisation.resources
+X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\IniFileParser.dll
+X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\IniFileParser.xml
+X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.SettingsWindow.resources

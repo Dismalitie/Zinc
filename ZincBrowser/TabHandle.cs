@@ -26,6 +26,7 @@ namespace ZincBrowser
         private SiticoneMaterialTextBox addr;
 
         Form1 f = new Form1();
+        ColorMgr c = new ColorMgr();
 
         public TabHandle(string url, WebView2 page, SiticoneMaterialTextBox addr)
         {
@@ -74,15 +75,16 @@ namespace ZincBrowser
 
         private async void TabHandle_Load(object sender, EventArgs e)
         {
+            c.setButtonColors(main); // load colors first
+            c.setButtonColors(cls);
             // TODO: add favicons
-            main.Text = await GetPageTitleAsync(url);
+
             main.Width = Parent.Width - 20 - cls.Width;
             cls.Location = new Point(main.Width + 10, cls.Location.Y);
             cls.Height = main.Height;
             cls.Width = cls.Height;
-            f.setButtonColors(main);
-            f.setButtonColors(cls);
 
+            main.Text = await GetPageTitleAsync(url);
             page.SourceChanged += Page_SourceChanged;
         }
 

@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Net.Http;
+using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Windows.Forms;
@@ -19,7 +21,8 @@ namespace ZincBrowser
     {
         public List<TabHandle> tabhandles = new List<TabHandle>();
         public List<WebView2> pages = new List<WebView2>();
-        public WebView2 currentPage = null;
+        public WebView2 currentPage = null; // handle
+        public SettingsWindow settingsWindowHandle = null;
         public List<string> history = new List<string>(); // too lazy, implement later
 
         public bool sidebarMinimised = false;
@@ -31,23 +34,6 @@ namespace ZincBrowser
         public Form1()
         {
             InitializeComponent();
-        }
-
-        public void setPanelColors(SiticonePanel panel)
-        {
-            panel.BorderColor = c.border;
-            panel.BorderRadius = Settings.Default.BorderRadius;
-            panel.BorderThickness = Settings.Default.BorderThickness;
-            panel.FillColor = c.panelTint;
-        }
-
-        public void setButtonColors(SiticoneButton btn)
-        {
-            btn.HoveredState.BorderColor = c.accent;
-            btn.BorderColor = c.border;
-            btn.BorderRadius = Settings.Default.BorderRadius;
-            btn.BorderThickness = Settings.Default.BorderThickness;
-            btn.FillColor = c.panelTint;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -63,29 +49,30 @@ namespace ZincBrowser
 
             foreach (SiticonePanel panel in Controls)
             {
-                setPanelColors(panel);
+                c.setPanelColors(panel);
             }
 
-            setButtonColors(newtab);
-            setButtonColors(closeall);
-            setButtonColors(minside);
+            c.setButtonColors(newtab);
+            c.setButtonColors(closeall);
+            c.setButtonColors(minside);
 
-            setButtonColors(reload);
-            setButtonColors(forward);
-            setButtonColors(backward);
+            c.setButtonColors(reload);
+            c.setButtonColors(forward);
+            c.setButtonColors(backward);
             addressbar.HoveredState.BorderColor = c.accent;
             addressbar.FocusedState.BorderColor = c.accent;
             addressbar.BorderColor = c.border;
 
-            setButtonColors(incognito);
-            setButtonColors(searchhistory);
-            setButtonColors(customisation);
+            c.setButtonColors(incognito);
+            c.setButtonColors(searchhistory);
+            c.setButtonColors(customisation);
 
-            setButtonColors(zoomin);
-            setButtonColors(zoomout);
+            c.setButtonColors(zoomin);
+            c.setButtonColors(zoomout);
 
-            setButtonColors(bookmarks);
-            setButtonColors(bookmarkadd);
+            c.setButtonColors(bookmarks);
+            c.setButtonColors(bookmarkadd);
+            c.setButtonColors(bookmarkdel);
 
             tablist_e.BorderRadius = Settings.Default.BorderRadius;
             addr_e.BorderRadius = Settings.Default.BorderRadius;
@@ -202,11 +189,14 @@ namespace ZincBrowser
 
             zoomlbl.Location = new Point(zoomout.Location.X - 5 - zoomout.Width, (zoomlbl.Parent.Height / 2) - (zoomlbl.Height / 2));
 
-            bookmarks.Size = zoomout.Size;
+            bookmarks.Size = newtab.Size;
             bookmarks.Location = new Point(5, 5);
 
             bookmarkadd.Size = bookmarks.Size;
             bookmarkadd.Location = new Point(bookmarks.Location.X + 5 + bookmarks.Width, 5);
+
+            bookmarkdel.Size = bookmarkadd.Size;
+            bookmarkdel.Location = new Point(bookmarkadd.Location.X + bookmarkadd.Width + 5, 5);
 
             foreach (Control ctrl in pagearea.Controls)
             {
@@ -253,23 +243,29 @@ namespace ZincBrowser
             pagearea.Show();
         }
 
-        private void addressbar_KeyDown(object sender, KeyEventArgs e)
+        private async void addressbar_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && currentPage == null)
             { 
                 WebView2 page = new WebView2();
 
-                Regex searchRegex = new Regex(@"^[a-zA-Z0-9\s]+$");
-                Regex urlRegex = new Regex(@"^https?://");
-                if (searchRegex.IsMatch(addressbar.Text))
+                using (HttpClient client = new HttpClient())
                 {
-                    page.Source = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(addressbar.Text)}");
+                    HttpResponseMessage response = await client.GetAsync("https://" + addressbar.Text);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        page.Source = new Uri("https://" + addressbar.Text);
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    {
+                        page.Source = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(addressbar.Text)}");
+                    }
+                    else
+                    {
+                        page.Source = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(addressbar.Text)}");
+                    }
                 }
-                if (urlRegex.IsMatch(addressbar.Text))
-                {
-                    page.Source = new Uri(addressbar.Text);
-                }
-                page.Source = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(addressbar.Text)}");
 
                 page.Parent = pagearea;
                 page.Size = new Size(pagearea.Width - 10, pagearea.Height - 10);
@@ -358,23 +354,14 @@ namespace ZincBrowser
             settingsOpen = !settingsOpen;
             if (!settingsOpen)
             {
-                foreach (Control ctrl in pagearea.Controls)
-                {
-                    if (ctrl is Menu_Customisation)
-                    {
-                        Menu_Customisation mc = (Menu_Customisation)ctrl;
-                        mc.save();
-                        ctrl.Dispose();
-                        return;
-                    }
-                }
+                settingsWindowHandle.Dispose();
+                settingsWindowHandle = null;
             }
             else
             {
-                Menu_Customisation mc = new Menu_Customisation();
-                pagearea.Controls.Add(mc);
-                mc.Dock = DockStyle.Fill;
-                mc.BringToFront();
+                SettingsWindow sw = new SettingsWindow();
+                settingsWindowHandle = sw;
+                sw.Show();
             }
         }
 

@@ -55,6 +55,7 @@
             this.zoomin = new Siticone.UI.WinForms.SiticoneButton();
             this.zoomout = new Siticone.UI.WinForms.SiticoneButton();
             this.update = new System.Windows.Forms.Timer(this.components);
+            this.bookmarkdel = new Siticone.UI.WinForms.SiticoneButton();
             this.pagecontrolarea.SuspendLayout();
             this.menu.SuspendLayout();
             this.tabarea.SuspendLayout();
@@ -267,7 +268,7 @@
             this.customisation.ForeColor = System.Drawing.Color.White;
             this.customisation.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.customisation.HoveredState.Parent = this.customisation;
-            this.customisation.Image = global::ZincBrowser.Properties.Resources.customization;
+            this.customisation.Image = global::ZincBrowser.Properties.Resources.settings;
             this.customisation.Location = new System.Drawing.Point(3, 2);
             this.customisation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.customisation.Name = "customisation";
@@ -386,6 +387,7 @@
             this.misccontrols.BackColor = System.Drawing.Color.Transparent;
             this.misccontrols.BorderRadius = 10;
             this.misccontrols.BorderThickness = 1;
+            this.misccontrols.Controls.Add(this.bookmarkdel);
             this.misccontrols.Controls.Add(this.zoomlbl);
             this.misccontrols.Controls.Add(this.bookmarkadd);
             this.misccontrols.Controls.Add(this.bookmarks);
@@ -501,6 +503,27 @@
             this.update.Enabled = true;
             this.update.Tick += new System.EventHandler(this.update_Tick);
             // 
+            // bookmarkdel
+            // 
+            this.bookmarkdel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.bookmarkdel.BorderRadius = 10;
+            this.bookmarkdel.BorderThickness = 1;
+            this.bookmarkdel.CheckedState.Parent = this.bookmarkdel;
+            this.bookmarkdel.CustomImages.Parent = this.bookmarkdel;
+            this.bookmarkdel.Enabled = false;
+            this.bookmarkdel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.bookmarkdel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bookmarkdel.ForeColor = System.Drawing.Color.White;
+            this.bookmarkdel.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.bookmarkdel.HoveredState.Parent = this.bookmarkdel;
+            this.bookmarkdel.Image = global::ZincBrowser.Properties.Resources.bookmark_minus;
+            this.bookmarkdel.Location = new System.Drawing.Point(92, 2);
+            this.bookmarkdel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bookmarkdel.Name = "bookmarkdel";
+            this.bookmarkdel.ShadowDecoration.Parent = this.bookmarkdel;
+            this.bookmarkdel.Size = new System.Drawing.Size(39, 35);
+            this.bookmarkdel.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -559,6 +582,6 @@
         public Siticone.UI.WinForms.SiticoneButton bookmarks;
         public Siticone.UI.WinForms.SiticoneButton bookmarkadd;
         private System.Windows.Forms.Label zoomlbl;
+        public Siticone.UI.WinForms.SiticoneButton bookmarkdel;
     }
 }
-

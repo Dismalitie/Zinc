@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IniFileParser</name>
+    </assembly>
+    <members>
+        <member name="T:SoftCircuits.IniFileParser.BoolOptions">
+            <summary>
+            Options for reading Boolean setting values.
+            </summary>
+        </member>
+        <member name="P:SoftCircuits.IniFileParser.BoolOptions.NonZeroNumbersAreTrue">
+            <summary>
+            Gets or sets whether any value that can be interpreted as a non-zero integer
+            should be considered to be <c>true</c> when reading settings.
+            </summary>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.BoolOptions.#ctor(System.StringComparer)">
+            <summary>
+            Constructs a <see cref="T:SoftCircuits.IniFileParser.BoolOptions"></see> instance.
+            </summary>
+            <param name="comparer">Specifies the string comparer used to compare strings.
+            If not supplied, <c>StringComparer.CurrentCultureIgnoreCase</c> is used.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.BoolOptions.SetBoolWords(System.Collections.Generic.IEnumerable{SoftCircuits.IniFileParser.BoolWord})">
+            <summary>
+            Sets the words to be interpreted as Boolean values, replacing any
+            existing Boolean words. Must include at least one <c>true</c> value
+            and one <c>false</c> value.
+            </summary>
+            <param name="words">List of Boolean words and their corresponding value.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.BoolOptions.ToString(System.Boolean)">
+            <summary>
+            Converts a Boolean value to a string.
+            </summary>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.BoolOptions.TryParse(System.String,System.Boolean@)">
+            <summary>
+            Converts a string to a Boolean value.
+            </summary>
+        </member>
+        <member name="T:SoftCircuits.IniFileParser.BoolWord">
+            <summary>
+            Defines a single word that can be interpreted as a <see cref="T:System.Boolean"/> value.
+            </summary>
+        </member>
+        <member name="P:SoftCircuits.IniFileParser.BoolWord.Word">
+            <summary>
+            Specifies a word that can be interpreted as a Boolean value.
+            </summary>
+        </member>
+        <member name="P:SoftCircuits.IniFileParser.BoolWord.Value">
+            <summary>
+            Specifies the Boolean value of the associated word.
+            </summary>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.BoolWord.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructs a <see cref="T:SoftCircuits.IniFileParser.BoolWord"></see> instance.
+            </summary>
+            <param name="word">A word that can be interpreted as a Boolean value.</param>
+            <param name="value">The Boolean value of the associated word.</param>
+        </member>
+        <member name="T:SoftCircuits.IniFileParser.IniFile">
+            <summary>
+            Class to read and write INI files.
+            </summary>
+        </member>
+        <member name="F:SoftCircuits.IniFileParser.IniFile.DefaultSectionName">
+            <summary>
+            Default section name. Used for any settings found outside any section header.
+            </summary>
+        </member>
+        <member name="P:SoftCircuits.IniFileParser.IniFile.CommentCharacter">
+            <summary>
+            Gets or sets the character used to signify a comment. Must be the first
+            non-space character on the line. Default value is a semicolon (<c>;</c>).
+            </summary>
+        </member>
+        <member name="F:SoftCircuits.IniFileParser.IniFile.DefaultDateTimeFormat">
+            <summary>
+            The default format string used to encode <see cref="T:System.DateTime"/> values;
+            </summary>
+        </member>
+        <member name="F:SoftCircuits.IniFileParser.IniFile.DateTimeFormat">
+            <summary>
+            Gets or sets the format string used to encode and decode <see cref="T:System.DateTime"/> values.
+            </summary>
+        </member>
+        <member name="P:SoftCircuits.IniFileParser.IniFile.Comments">
+            <summary>
+            Contains the list of comment lines read from a file, or that will be written
+            to a file.
+            </summary>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.#ctor(System.StringComparer,SoftCircuits.IniFileParser.BoolOptions)">
+            <summary>
+            Constructs a new <see cref="T:SoftCircuits.IniFileParser.IniFile"></see> instance.
+            </summary>
+            <param name="comparer"><see cref="F:SoftCircuits.IniFileParser.IniFile.StringComparer"></see> used to compare section and setting
+            names. If not specified, <see cref="P:System.StringComparer.CurrentCultureIgnoreCase"></see> is used
+            (i.e. names are not case-sensitive).</param>
+            <param name="boolOptions">Options for interpreting <c>bool</c> values.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.Load(System.String)">
+            <summary>
+            Loads all settings from the specified INI file. Overwrites any existing settings.
+            </summary>
+            <param name="path">Path of the INI file to load.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.LoadAsync(System.String)">
+            <summary>
+            Asynchronously loads all settings from the specified INI file. Overwrites any existing settings.
+            </summary>
+            <param name="path">Path of the INI file to load.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.Load(System.String,System.Boolean)">
+            <summary>
+            Loads all settings from the specified INI file. Overwrites any existing settings.
+            </summary>
+            <param name="path">Path of the INI file to load.</param>
+            <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the
+            beginning of the file.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.LoadAsync(System.String,System.Boolean)">
+            <summary>
+            Asynchronously loads all settings from the specified INI file. Overwrites any existing settings.
+            </summary>
+            <param name="path">Path of the INI file to load.</param>
+            <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the
+            beginning of the file.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.Load(System.String,System.Text.Encoding)">
+            <summary>
+            Loads all settings from the specified INI file. Overwrites any existing settings.
+            </summary>
+            <param name="path">Path of the INI file to load settings from.</param>
+            <param name="encoding">The character encoding to use.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.LoadAsync(System.String,System.Text.Encoding)">
+            <summary>
+            Asynchronously loads all settings from the specified INI file. Overwrites any existing settings.
+            </summary>
+            <param name="path">Path of the INI file to load settings from.</param>
+            <param name="encoding">The character encoding to use.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.Load(System.String,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Loads all settings from the specified INI file. Overwrites any existing settings.
+            </summary>
+            <param name="path">Path of the INI file to load settings from.</param>
+            <param name="encoding">The character encoding to use.</param>
+            <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the
+            beginning of the file.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.LoadAsync(System.String,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Asynchronously loads all settings from the specified INI file. Overwrites any existing settings.
+            </summary>
+            <param name="path">Path of the INI file to load settings from.</param>
+            <param name="encoding">The character encoding to use.</param>
+            <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the
+            beginning of the file.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.Load(System.IO.StreamReader)">
+            <summary>
+            Loads all settings from the specified stream. Overwrites any existing settings.
+            </summary>
+            <param name="reader">The <see cref="T:System.IO.StreamReader"></see> to load settings from.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.LoadAsync(System.IO.StreamReader)">
+            <summary>
+            Asynchronously loads all settings from the specified stream. Overwrites any existing settings.
+            </summary>
+            <param name="reader">The <see cref="T:System.IO.StreamReader"></see> to load settings from.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.Save(System.String)">
+            <summary>
+            Saves the current settings to an INI file. If the file already exists, it is
+            overwritten.
+            </summary>
+            <param name="path">Path of the INI file to write settings to.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.SaveAsync(System.String)">
+            <summary>
+            Asynchronously saves the current settings to an INI file. If the file already exists, it is
+            overwritten.
+            </summary>
+            <param name="path">Path of the INI file to write settings to.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.Save(System.String,System.Text.Encoding)">
+            <summary>
+            Saves the current settings to an INI file. If the file already exists, it is
+            overwritten.
+            </summary>
+            <param name="path">Path of the INI file to write settings to.</param>
+            <param name="encoding">The character encoding to use.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.SaveAsync(System.String,System.Text.Encoding)">
+            <summary>
+            Asynchronouly saves the current settings to an INI file. If the file already exists, it is
+            overwritten.
+            </summary>
+            <param name="path">Path of the INI file to write settings to.</param>
+            <param name="encoding">The character encoding to use.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.Save(System.IO.StreamWriter)">
+            <summary>
+            Writes the current settings to an INI file. If the file already exists, it is
+            overwritten.
+            </summary>
+            <param name="writer"><see cref="T:System.IO.StreamWriter"></see> to save the settings
+            to.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.SaveAsync(System.IO.StreamWriter)">
+            <summary>
+            Asynchronously writes the current settings to an INI file. If the file already exists, it is
+            overwritten.
+            </summary>
+            <param name="writer"><see cref="T:System.IO.StreamWriter"></see> to save the settings
+            to.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.GetSetting(System.String,System.String,System.String)">
+            <summary>
+            Returns the value of an INI setting.
+            </summary>
+            <param name="section">The INI file section name.</param>
+            <param name="setting">The INI setting name.</param>
+            <param name="defaultValue">The value to return if the setting was not found.</param>
+            <returns>Returns the specified setting value.</returns>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.GetSetting(System.String,System.String,System.Int32)">
+            <summary>
+            Returns the value of an INI setting as an <see cref="T:System.Int32"/> value.
+            </summary>
+            <param name="section">The INI file section name.</param>
+            <param name="setting">The INI setting name.</param>
+            <param name="defaultValue">The value to return if the setting was not found,
+            or if it could not be converted to a <see cref="T:System.Int32"/> value.</param>
+            <returns>Returns the specified setting value as an <see cref="T:System.Int32"/> value.</returns>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.GetSetting(System.String,System.String,System.Double)">
+            <summary>
+            Returns the value of an INI setting as a <see cref="T:System.Double"/> value.
+            </summary>
+            <param name="section">The INI file section name.</param>
+            <param name="setting">The INI setting name.</param>
+            <param name="defaultValue">The value to return if the setting was not found,
+            or if it could not be converted to a <see cref="T:System.Double"/> value.</param>
+            <returns>Returns the specified setting value as a <see cref="T:System.Double"/> value.</returns>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.GetSetting(System.String,System.String,System.Boolean)">
+            <summary>
+            Returns the value of an INI setting as a <see cref="T:System.Boolean"/> value.
+            </summary>
+            <param name="section">The INI file section name.</param>
+            <param name="setting">The INI setting name.</param>
+            <param name="defaultValue">The value to return if the setting was not found,
+            or if it could not be converted to a <see cref="T:System.Boolean"/> value.</param>
+            <returns>Returns the specified setting value as a <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.GetSetting(System.String,System.String,System.DateTime)">
+            <summary>
+            Returns the value of an INI setting as a <see cref="T:System.DateTime"/> value.
+            </summary>
+            <param name="section">The INI file section name.</param>
+            <param name="setting">The INI setting name.</param>
+            <param name="defaultValue">The value to return if the setting was not found,
+            or if it could not be converted to a <see cref="T:System.DateTime"/> value.</param>
+            <returns>Returns the specified setting value as a <see cref="T:System.DateTime"/>.</returns>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.GetSections">
+            <summary>
+            Returns all the section names in the current INI file.
+            </summary>
+            <returns>A list of all section names.</returns>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.GetSectionSettings(System.String)">
+            <summary>
+            Returns all settings in the given INI section.
+            </summary>
+            <param name="section">The name of the section that contains the settings to be retrieved.</param>
+            <returns>Returns the settings in the given INI section.</returns>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.SetSetting(System.String,System.String,System.String)">
+            <summary>
+            Sets an INI file setting. The setting is not written to disk until
+            <see cref="M:SoftCircuits.IniFileParser.IniFile.Save(System.String)"/> or <see cref="M:SoftCircuits.IniFileParser.IniFile.SaveAsync(System.String)"/> is called.
+            </summary>
+            <param name="section">The INI file section name.</param>
+            <param name="setting">The name of the INI file setting.</param>
+            <param name="value">The value of the INI file setting.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.SetSetting(System.String,System.String,System.Int32)">
+            <summary>
+            Sets an INI file setting with an <see cref="T:System.Int32"/> value.
+            </summary>
+            <param name="section">The INI file section name.</param>
+            <param name="setting">The name of the INI file setting.</param>
+            <param name="value">The value of the INI file setting.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.SetSetting(System.String,System.String,System.Double)">
+            <summary>
+            Sets an INI file setting with a <see cref="T:System.Double"/> value.
+            </summary>
+            <param name="section">The INI file section name.</param>
+            <param name="setting">The name of the INI file setting.</param>
+            <param name="value">The value of the INI file setting.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.SetSetting(System.String,System.String,System.Boolean)">
+            <summary>
+            Sets an INI file setting with a <see cref="T:System.Boolean"/> value.
+            </summary>
+            <param name="section">The INI file section name.</param>
+            <param name="setting">The name of the INI file setting.</param>
+            <param name="value">The value of the INI file setting.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.SetSetting(System.String,System.String,System.DateTime)">
+            <summary>
+            Sets an INI file setting with a <see cref="T:System.DateTime"/> value.
+            </summary>
+            <param name="section">The INI file section name.</param>
+            <param name="setting">The name of the INI file setting.</param>
+            <param name="value">The value of the INI file setting.</param>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniFile.Clear">
+            <summary>
+            Clears all sections, settings and comments.
+            </summary>
+        </member>
+        <member name="T:SoftCircuits.IniFileParser.IniSection">
+            <summary>
+            Represents an INI file section.
+            </summary>
+        </member>
+        <member name="P:SoftCircuits.IniFileParser.IniSection.Name">
+            <summary>
+            The name of this INI section.
+            </summary>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniSection.#ctor(System.String,System.StringComparer)">
+            <summary>
+            Constructs a new <see cref="T:SoftCircuits.IniFileParser.IniSection"></see> instance.
+            </summary>
+            <param name="name">Name of this INI section.</param>
+            <param name="comparer"><see cref="T:System.StringComparer"></see> used to
+            look up setting names.</param>
+        </member>
+        <member name="T:SoftCircuits.IniFileParser.IniSetting">
+            <summary>
+            Represents the name/value pair of an INI-file setting.
+            </summary>
+        </member>
+        <member name="P:SoftCircuits.IniFileParser.IniSetting.Name">
+            <summary>
+            The name of this INI setting.
+            </summary>
+        </member>
+        <member name="P:SoftCircuits.IniFileParser.IniSetting.Value">
+            <summary>
+            The value of this INI setting.
+            </summary>
+        </member>
+        <member name="M:SoftCircuits.IniFileParser.IniSetting.ToString">
+            <summary>
+            Converts this <see cref="T:SoftCircuits.IniFileParser.IniSetting"></see> to a string.
+            </summary>
+            <remarks>
+            This method is used to write each setting to the INI file and
+            so the result must fit that format.
+            </remarks>
+        </member>
+    </members>
+</doc>
