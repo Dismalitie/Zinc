@@ -32,9 +32,6 @@
     <Setting Name="MaterialStyle" Type="System.String" Scope="User">
       <Value Profile="(Default)">tabbed</Value>
     </Setting>
-    <Setting Name="BackgroundImagePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">*</Value>
-    </Setting>
     <Setting Name="Dev_UseBetaUpdateChannel" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -55,6 +52,9 @@
     </Setting>
     <Setting Name="AccentColor_B" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">255</Value>
+    </Setting>
+    <Setting Name="BorderStyle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">solid</Value>
     </Setting>
   </Settings>
 </SettingsFile>

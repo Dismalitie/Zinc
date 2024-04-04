@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZincBrowser.Properties;
+using ZincBrowser.UCs;
 
 namespace ZincBrowser
 {
@@ -22,10 +23,13 @@ namespace ZincBrowser
 
         Form1 f = new Form1();
         ColorMgr c = new ColorMgr();
+        SecondaryStorageMgr ssmgr = new SecondaryStorageMgr();
+
         public bool tabbed;
 
         private void Menu_Customisation_Load(object sender, EventArgs e)
         {
+            nothemes.Hide();
             if (Settings.Default.MaterialStyle == "tabbed")
             {
                 tabbed = true;
@@ -88,6 +92,17 @@ namespace ZincBrowser
             transp_val.HoveredState.BorderColor = c.accent;
             borderthicc_val.HoveredState.BorderColor = c.accent;
             borderrad_val.HoveredState.BorderColor = c.accent;
+
+            foreach (Dictionary<string, object> config in ssmgr.loadThemes())
+            {
+                ThemeHandle th = new ThemeHandle(config);
+                themes.Controls.Add(th);
+            }
+
+            if (themes.Controls.Count == 0)
+            {
+                nothemes.Show();
+            }
         }
 
         private void mat_tabbed_Click(object sender, EventArgs e)

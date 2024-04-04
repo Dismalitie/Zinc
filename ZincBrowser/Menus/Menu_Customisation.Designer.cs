@@ -50,6 +50,9 @@
             this.acc_r = new Siticone.UI.WinForms.SiticoneMaterialTextBox();
             this.acc = new System.Windows.Forms.Label();
             this.sv = new Siticone.UI.WinForms.SiticoneButton();
+            this.themes = new System.Windows.Forms.FlowLayoutPanel();
+            this.nothemes = new System.Windows.Forms.Label();
+            this.themes.SuspendLayout();
             this.SuspendLayout();
             // 
             // bordercol
@@ -483,20 +486,42 @@
             this.sv.ForeColor = System.Drawing.Color.White;
             this.sv.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.sv.HoveredState.Parent = this.sv;
-            this.sv.Location = new System.Drawing.Point(3, 591);
+            this.sv.Location = new System.Drawing.Point(3, 747);
             this.sv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sv.Name = "sv";
             this.sv.ShadowDecoration.Parent = this.sv;
-            this.sv.Size = new System.Drawing.Size(832, 40);
+            this.sv.Size = new System.Drawing.Size(821, 40);
             this.sv.TabIndex = 24;
             this.sv.Text = "Save";
             this.sv.Click += new System.EventHandler(this.sv_Click);
+            // 
+            // themes
+            // 
+            this.themes.Controls.Add(this.nothemes);
+            this.themes.Location = new System.Drawing.Point(3, 317);
+            this.themes.Name = "themes";
+            this.themes.Padding = new System.Windows.Forms.Padding(5);
+            this.themes.Size = new System.Drawing.Size(821, 425);
+            this.themes.TabIndex = 25;
+            // 
+            // nothemes
+            // 
+            this.nothemes.AutoSize = true;
+            this.nothemes.BackColor = System.Drawing.Color.Transparent;
+            this.nothemes.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothemes.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.nothemes.Location = new System.Drawing.Point(8, 5);
+            this.nothemes.Name = "nothemes";
+            this.nothemes.Size = new System.Drawing.Size(150, 20);
+            this.nothemes.TabIndex = 0;
+            this.nothemes.Text = "No themes installed...";
             // 
             // Menu_Customisation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.themes);
             this.Controls.Add(this.sv);
             this.Controls.Add(this.acc_b);
             this.Controls.Add(this.acc_g);
@@ -521,9 +546,11 @@
             this.Controls.Add(this.bordercol);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Menu_Customisation";
-            this.Size = new System.Drawing.Size(838, 634);
+            this.Size = new System.Drawing.Size(827, 789);
             this.Load += new System.EventHandler(this.Menu_Customisation_Load);
             this.Resize += new System.EventHandler(this.Menu_Customisation_Resize);
+            this.themes.ResumeLayout(false);
+            this.themes.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,5 +580,7 @@
         private Siticone.UI.WinForms.SiticoneMaterialTextBox acc_r;
         private System.Windows.Forms.Label acc;
         private Siticone.UI.WinForms.SiticoneButton sv;
+        private System.Windows.Forms.FlowLayoutPanel themes;
+        private System.Windows.Forms.Label nothemes;
     }
 }

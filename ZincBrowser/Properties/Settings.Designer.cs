@@ -145,18 +145,6 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("*")]
-        public string BackgroundImagePath {
-            get {
-                return ((string)(this["BackgroundImagePath"]));
-            }
-            set {
-                this["BackgroundImagePath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Dev_UseBetaUpdateChannel {
             get {
@@ -236,6 +224,18 @@ namespace ZincBrowser.Properties {
             }
             set {
                 this["AccentColor_B"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("solid")]
+        public string BorderStyle {
+            get {
+                return ((string)(this["BorderStyle"]));
+            }
+            set {
+                this["BorderStyle"] = value;
             }
         }
     }

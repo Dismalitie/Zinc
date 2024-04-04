@@ -35,8 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HtmlAgilityPack, Version=1.11.59.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlAgilityPack.1.11.59\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="HtmlAgilityPack, Version=1.11.60.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.60\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="IniFileParser, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SoftCircuits.IniFileParser.2.5.0\lib\netstandard2.0\IniFileParser.dll</HintPath>
@@ -93,11 +93,15 @@
     <Compile Include="SettingsWindow.Designer.cs">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="TabHandle.cs">
+    <Compile Include="UCs\TabHandle.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TabHandle.Designer.cs">
-      <DependentUpon>TabHandle.cs</DependentUpon>
+    <Compile Include="UCs\TabHandle.Designer.cs" />
+    <Compile Include="UCs\ThemeHandle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\ThemeHandle.Designer.cs">
+      <DependentUpon>ThemeHandle.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -118,8 +122,9 @@
     <EmbeddedResource Include="SettingsWindow.resx">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TabHandle.resx">
-      <DependentUpon>TabHandle.cs</DependentUpon>
+    <EmbeddedResource Include="UCs\TabHandle.resx" />
+    <EmbeddedResource Include="UCs\ThemeHandle.resx">
+      <DependentUpon>ThemeHandle.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
