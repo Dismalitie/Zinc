@@ -164,11 +164,6 @@ namespace ZincBrowser
                 return;
             }
 
-            if (!f.incognitoMode)
-            {
-                // when i add search history, write it here with a function ig
-            }
-
             Settings.Default.Save();
 
             if (MessageBox.Show("Zinc requires a restart to apply changes.\nWould you like to restart now?", "Zinc - Customisation Settings", MessageBoxButtons.YesNo) == DialogResult.Yes)

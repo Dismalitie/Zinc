@@ -145,54 +145,6 @@ namespace ZincBrowser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Dev_UseBetaUpdateChannel {
-            get {
-                return ((bool)(this["Dev_UseBetaUpdateChannel"]));
-            }
-            set {
-                this["Dev_UseBetaUpdateChannel"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Dev_EnableExtensions {
-            get {
-                return ((bool)(this["Dev_EnableExtensions"]));
-            }
-            set {
-                this["Dev_EnableExtensions"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Dev_EnableThemeLoader {
-            get {
-                return ((bool)(this["Dev_EnableThemeLoader"]));
-            }
-            set {
-                this["Dev_EnableThemeLoader"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Dev_EnableTransfers {
-            get {
-                return ((bool)(this["Dev_EnableTransfers"]));
-            }
-            set {
-                this["Dev_EnableTransfers"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("162")]
         public int AccentColor_R {
             get {

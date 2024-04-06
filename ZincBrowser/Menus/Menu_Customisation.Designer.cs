@@ -512,9 +512,10 @@
             this.nothemes.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.nothemes.Location = new System.Drawing.Point(8, 5);
             this.nothemes.Name = "nothemes";
-            this.nothemes.Size = new System.Drawing.Size(150, 20);
+            this.nothemes.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.nothemes.Size = new System.Drawing.Size(136, 20);
             this.nothemes.TabIndex = 0;
-            this.nothemes.Text = "No themes installed...";
+            this.nothemes.Text = "No themes found :(";
             // 
             // Menu_Customisation
             // 

@@ -1,3 +1,6 @@
-2024/03/27-09:12:52.035 9308 Reusing MANIFEST X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\ZincBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/03/27-09:12:52.036 9308 Recovering log #15
-2024/03/27-09:12:52.045 9308 Reusing old log X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\ZincBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000015.log 
+2024/04/05-22:56:48.551 9f74 Reusing MANIFEST X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\ZincBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/04/05-22:56:48.552 9f74 Recovering log #15
+2024/04/05-22:56:48.570 9f74 Reusing old log X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\ZincBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000015.log 
+2024/04/05-22:57:11.725 b208 Level-0 table #20: started
+2024/04/05-22:57:11.766 b208 Level-0 table #20: 1236387 bytes OK
+2024/04/05-22:57:11.771 b208 Delete type=0 #15

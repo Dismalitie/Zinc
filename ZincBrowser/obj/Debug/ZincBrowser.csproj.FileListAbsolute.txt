@@ -29,3 +29,5 @@ X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\IniFileParser.xml
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.SettingsWindow.resources
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.UCs.ThemeHandle.resources
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.UCs.TabHandle.resources
+X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.Menus.Menu_History.resources
+X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.UCs.SearchHandle.resources

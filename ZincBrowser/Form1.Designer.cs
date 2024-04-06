@@ -34,28 +34,28 @@
             this.pagearea = new Siticone.UI.WinForms.SiticonePanel();
             this.pagecontrolarea = new Siticone.UI.WinForms.SiticonePanel();
             this.addressbar = new Siticone.UI.WinForms.SiticoneMaterialTextBox();
-            this.forward = new Siticone.UI.WinForms.SiticoneButton();
-            this.reload = new Siticone.UI.WinForms.SiticoneButton();
-            this.backward = new Siticone.UI.WinForms.SiticoneButton();
             this.menu = new Siticone.UI.WinForms.SiticonePanel();
-            this.incognito = new Siticone.UI.WinForms.SiticoneButton();
-            this.searchhistory = new Siticone.UI.WinForms.SiticoneButton();
-            this.customisation = new Siticone.UI.WinForms.SiticoneButton();
             this.tabarea = new Siticone.UI.WinForms.SiticonePanel();
             this.tabcontrolarea = new Siticone.UI.WinForms.SiticonePanel();
-            this.minside = new Siticone.UI.WinForms.SiticoneButton();
-            this.closeall = new Siticone.UI.WinForms.SiticoneButton();
-            this.newtab = new Siticone.UI.WinForms.SiticoneButton();
             this.addr_e = new Siticone.UI.WinForms.SiticoneElipse(this.components);
             this.tablist_e = new Siticone.UI.WinForms.SiticoneElipse(this.components);
             this.misccontrols = new Siticone.UI.WinForms.SiticonePanel();
             this.zoomlbl = new System.Windows.Forms.Label();
+            this.update = new System.Windows.Forms.Timer(this.components);
+            this.bookmarkdel = new Siticone.UI.WinForms.SiticoneButton();
             this.bookmarkadd = new Siticone.UI.WinForms.SiticoneButton();
             this.bookmarks = new Siticone.UI.WinForms.SiticoneButton();
             this.zoomin = new Siticone.UI.WinForms.SiticoneButton();
             this.zoomout = new Siticone.UI.WinForms.SiticoneButton();
-            this.update = new System.Windows.Forms.Timer(this.components);
-            this.bookmarkdel = new Siticone.UI.WinForms.SiticoneButton();
+            this.minside = new Siticone.UI.WinForms.SiticoneButton();
+            this.closeall = new Siticone.UI.WinForms.SiticoneButton();
+            this.newtab = new Siticone.UI.WinForms.SiticoneButton();
+            this.incognito = new Siticone.UI.WinForms.SiticoneButton();
+            this.gh = new Siticone.UI.WinForms.SiticoneButton();
+            this.customisation = new Siticone.UI.WinForms.SiticoneButton();
+            this.forward = new Siticone.UI.WinForms.SiticoneButton();
+            this.reload = new Siticone.UI.WinForms.SiticoneButton();
+            this.backward = new Siticone.UI.WinForms.SiticoneButton();
             this.pagecontrolarea.SuspendLayout();
             this.menu.SuspendLayout();
             this.tabarea.SuspendLayout();
@@ -110,7 +110,7 @@
             // 
             this.addressbar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.addressbar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.addressbar.DefaultText = "";
+            this.addressbar.DefaultText = "Search or type a URL...";
             this.addressbar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.addressbar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.addressbar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -119,6 +119,7 @@
             this.addressbar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.addressbar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.addressbar.FocusedState.Parent = this.addressbar;
+            this.addressbar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.addressbar.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.addressbar.HoveredState.Parent = this.addressbar;
             this.addressbar.IconLeftOffset = new System.Drawing.Point(10, 0);
@@ -133,79 +134,13 @@
             this.addressbar.TabIndex = 0;
             this.addressbar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addressbar_KeyDown);
             // 
-            // forward
-            // 
-            this.forward.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.forward.BorderRadius = 10;
-            this.forward.BorderThickness = 1;
-            this.forward.CheckedState.Parent = this.forward;
-            this.forward.CustomImages.Parent = this.forward;
-            this.forward.Enabled = false;
-            this.forward.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.forward.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.forward.ForeColor = System.Drawing.Color.White;
-            this.forward.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.forward.HoveredState.Parent = this.forward;
-            this.forward.Image = global::ZincBrowser.Properties.Resources.forward;
-            this.forward.Location = new System.Drawing.Point(92, 2);
-            this.forward.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.forward.Name = "forward";
-            this.forward.ShadowDecoration.Parent = this.forward;
-            this.forward.Size = new System.Drawing.Size(39, 35);
-            this.forward.TabIndex = 3;
-            this.forward.Click += new System.EventHandler(this.forward_Click);
-            // 
-            // reload
-            // 
-            this.reload.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.reload.BorderRadius = 10;
-            this.reload.BorderThickness = 1;
-            this.reload.CheckedState.Parent = this.reload;
-            this.reload.CustomImages.Parent = this.reload;
-            this.reload.Enabled = false;
-            this.reload.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.reload.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.reload.ForeColor = System.Drawing.Color.White;
-            this.reload.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.reload.HoveredState.Parent = this.reload;
-            this.reload.Image = global::ZincBrowser.Properties.Resources.reload;
-            this.reload.Location = new System.Drawing.Point(47, 2);
-            this.reload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.reload.Name = "reload";
-            this.reload.ShadowDecoration.Parent = this.reload;
-            this.reload.Size = new System.Drawing.Size(39, 35);
-            this.reload.TabIndex = 2;
-            this.reload.Click += new System.EventHandler(this.reload_Click);
-            // 
-            // backward
-            // 
-            this.backward.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.backward.BorderRadius = 10;
-            this.backward.BorderThickness = 1;
-            this.backward.CheckedState.Parent = this.backward;
-            this.backward.CustomImages.Parent = this.backward;
-            this.backward.Enabled = false;
-            this.backward.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.backward.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.backward.ForeColor = System.Drawing.Color.White;
-            this.backward.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.backward.HoveredState.Parent = this.backward;
-            this.backward.Image = global::ZincBrowser.Properties.Resources.back;
-            this.backward.Location = new System.Drawing.Point(3, 2);
-            this.backward.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.backward.Name = "backward";
-            this.backward.ShadowDecoration.Parent = this.backward;
-            this.backward.Size = new System.Drawing.Size(39, 35);
-            this.backward.TabIndex = 2;
-            this.backward.Click += new System.EventHandler(this.backward_Click);
-            // 
             // menu
             // 
             this.menu.BackColor = System.Drawing.Color.Transparent;
             this.menu.BorderRadius = 10;
             this.menu.BorderThickness = 1;
             this.menu.Controls.Add(this.incognito);
-            this.menu.Controls.Add(this.searchhistory);
+            this.menu.Controls.Add(this.gh);
             this.menu.Controls.Add(this.customisation);
             this.menu.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.menu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
@@ -215,67 +150,6 @@
             this.menu.ShadowDecoration.Parent = this.menu;
             this.menu.Size = new System.Drawing.Size(172, 40);
             this.menu.TabIndex = 3;
-            // 
-            // incognito
-            // 
-            this.incognito.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.incognito.BorderRadius = 10;
-            this.incognito.BorderThickness = 1;
-            this.incognito.CheckedState.Parent = this.incognito;
-            this.incognito.CustomImages.Parent = this.incognito;
-            this.incognito.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.incognito.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.incognito.ForeColor = System.Drawing.Color.White;
-            this.incognito.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.incognito.HoveredState.Parent = this.incognito;
-            this.incognito.Image = global::ZincBrowser.Properties.Resources.incognito;
-            this.incognito.Location = new System.Drawing.Point(92, 2);
-            this.incognito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.incognito.Name = "incognito";
-            this.incognito.ShadowDecoration.Parent = this.incognito;
-            this.incognito.Size = new System.Drawing.Size(39, 35);
-            this.incognito.TabIndex = 6;
-            // 
-            // searchhistory
-            // 
-            this.searchhistory.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.searchhistory.BorderRadius = 10;
-            this.searchhistory.BorderThickness = 1;
-            this.searchhistory.CheckedState.Parent = this.searchhistory;
-            this.searchhistory.CustomImages.Parent = this.searchhistory;
-            this.searchhistory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.searchhistory.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.searchhistory.ForeColor = System.Drawing.Color.White;
-            this.searchhistory.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.searchhistory.HoveredState.Parent = this.searchhistory;
-            this.searchhistory.Image = global::ZincBrowser.Properties.Resources.history;
-            this.searchhistory.Location = new System.Drawing.Point(47, 2);
-            this.searchhistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.searchhistory.Name = "searchhistory";
-            this.searchhistory.ShadowDecoration.Parent = this.searchhistory;
-            this.searchhistory.Size = new System.Drawing.Size(39, 35);
-            this.searchhistory.TabIndex = 5;
-            // 
-            // customisation
-            // 
-            this.customisation.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.customisation.BorderRadius = 10;
-            this.customisation.BorderThickness = 1;
-            this.customisation.CheckedState.Parent = this.customisation;
-            this.customisation.CustomImages.Parent = this.customisation;
-            this.customisation.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.customisation.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.customisation.ForeColor = System.Drawing.Color.White;
-            this.customisation.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.customisation.HoveredState.Parent = this.customisation;
-            this.customisation.Image = global::ZincBrowser.Properties.Resources.settings;
-            this.customisation.Location = new System.Drawing.Point(3, 2);
-            this.customisation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.customisation.Name = "customisation";
-            this.customisation.ShadowDecoration.Parent = this.customisation;
-            this.customisation.Size = new System.Drawing.Size(39, 35);
-            this.customisation.TabIndex = 4;
-            this.customisation.Click += new System.EventHandler(this.customisation_Click);
             // 
             // tabarea
             // 
@@ -308,69 +182,6 @@
             this.tabcontrolarea.ShadowDecoration.Parent = this.tabcontrolarea;
             this.tabcontrolarea.Size = new System.Drawing.Size(175, 40);
             this.tabcontrolarea.TabIndex = 4;
-            // 
-            // minside
-            // 
-            this.minside.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.minside.BorderRadius = 10;
-            this.minside.BorderThickness = 1;
-            this.minside.CheckedState.Parent = this.minside;
-            this.minside.CustomImages.Parent = this.minside;
-            this.minside.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.minside.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.minside.ForeColor = System.Drawing.Color.White;
-            this.minside.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.minside.HoveredState.Parent = this.minside;
-            this.minside.Image = global::ZincBrowser.Properties.Resources.sidebar_close;
-            this.minside.Location = new System.Drawing.Point(92, 2);
-            this.minside.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.minside.Name = "minside";
-            this.minside.ShadowDecoration.Parent = this.minside;
-            this.minside.Size = new System.Drawing.Size(39, 35);
-            this.minside.TabIndex = 2;
-            this.minside.Click += new System.EventHandler(this.minside_Click);
-            // 
-            // closeall
-            // 
-            this.closeall.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.closeall.BorderRadius = 10;
-            this.closeall.BorderThickness = 1;
-            this.closeall.CheckedState.Parent = this.closeall;
-            this.closeall.CustomImages.Parent = this.closeall;
-            this.closeall.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.closeall.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.closeall.ForeColor = System.Drawing.Color.White;
-            this.closeall.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.closeall.HoveredState.Parent = this.closeall;
-            this.closeall.Image = global::ZincBrowser.Properties.Resources.close_all;
-            this.closeall.Location = new System.Drawing.Point(47, 2);
-            this.closeall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.closeall.Name = "closeall";
-            this.closeall.ShadowDecoration.Parent = this.closeall;
-            this.closeall.Size = new System.Drawing.Size(39, 35);
-            this.closeall.TabIndex = 1;
-            this.closeall.Click += new System.EventHandler(this.closeall_Click);
-            // 
-            // newtab
-            // 
-            this.newtab.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.newtab.BorderRadius = 10;
-            this.newtab.BorderThickness = 1;
-            this.newtab.CheckedState.Parent = this.newtab;
-            this.newtab.CustomImages.Parent = this.newtab;
-            this.newtab.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.newtab.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.newtab.ForeColor = System.Drawing.Color.White;
-            this.newtab.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.newtab.HoveredState.Parent = this.newtab;
-            this.newtab.Image = global::ZincBrowser.Properties.Resources._new;
-            this.newtab.Location = new System.Drawing.Point(3, 2);
-            this.newtab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.newtab.Name = "newtab";
-            this.newtab.ShadowDecoration.Parent = this.newtab;
-            this.newtab.Size = new System.Drawing.Size(39, 35);
-            this.newtab.TabIndex = 0;
-            this.newtab.Click += new System.EventHandler(this.newtab_Click);
             // 
             // addr_e
             // 
@@ -412,6 +223,32 @@
             this.zoomlbl.Size = new System.Drawing.Size(45, 20);
             this.zoomlbl.TabIndex = 12;
             this.zoomlbl.Text = "100%";
+            // 
+            // update
+            // 
+            this.update.Enabled = true;
+            this.update.Tick += new System.EventHandler(this.update_Tick);
+            // 
+            // bookmarkdel
+            // 
+            this.bookmarkdel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.bookmarkdel.BorderRadius = 10;
+            this.bookmarkdel.BorderThickness = 1;
+            this.bookmarkdel.CheckedState.Parent = this.bookmarkdel;
+            this.bookmarkdel.CustomImages.Parent = this.bookmarkdel;
+            this.bookmarkdel.Enabled = false;
+            this.bookmarkdel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.bookmarkdel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bookmarkdel.ForeColor = System.Drawing.Color.White;
+            this.bookmarkdel.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.bookmarkdel.HoveredState.Parent = this.bookmarkdel;
+            this.bookmarkdel.Image = global::ZincBrowser.Properties.Resources.bookmark_minus;
+            this.bookmarkdel.Location = new System.Drawing.Point(92, 2);
+            this.bookmarkdel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bookmarkdel.Name = "bookmarkdel";
+            this.bookmarkdel.ShadowDecoration.Parent = this.bookmarkdel;
+            this.bookmarkdel.Size = new System.Drawing.Size(39, 35);
+            this.bookmarkdel.TabIndex = 13;
             // 
             // bookmarkadd
             // 
@@ -498,31 +335,197 @@
             this.zoomout.TabIndex = 7;
             this.zoomout.Click += new System.EventHandler(this.zoomout_Click);
             // 
-            // update
+            // minside
             // 
-            this.update.Enabled = true;
-            this.update.Tick += new System.EventHandler(this.update_Tick);
+            this.minside.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.minside.BorderRadius = 10;
+            this.minside.BorderThickness = 1;
+            this.minside.CheckedState.Parent = this.minside;
+            this.minside.CustomImages.Parent = this.minside;
+            this.minside.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.minside.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.minside.ForeColor = System.Drawing.Color.White;
+            this.minside.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.minside.HoveredState.Parent = this.minside;
+            this.minside.Image = global::ZincBrowser.Properties.Resources.sidebar_close;
+            this.minside.Location = new System.Drawing.Point(92, 2);
+            this.minside.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.minside.Name = "minside";
+            this.minside.ShadowDecoration.Parent = this.minside;
+            this.minside.Size = new System.Drawing.Size(39, 35);
+            this.minside.TabIndex = 2;
+            this.minside.Click += new System.EventHandler(this.minside_Click);
             // 
-            // bookmarkdel
+            // closeall
             // 
-            this.bookmarkdel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.bookmarkdel.BorderRadius = 10;
-            this.bookmarkdel.BorderThickness = 1;
-            this.bookmarkdel.CheckedState.Parent = this.bookmarkdel;
-            this.bookmarkdel.CustomImages.Parent = this.bookmarkdel;
-            this.bookmarkdel.Enabled = false;
-            this.bookmarkdel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.bookmarkdel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bookmarkdel.ForeColor = System.Drawing.Color.White;
-            this.bookmarkdel.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.bookmarkdel.HoveredState.Parent = this.bookmarkdel;
-            this.bookmarkdel.Image = global::ZincBrowser.Properties.Resources.bookmark_minus;
-            this.bookmarkdel.Location = new System.Drawing.Point(92, 2);
-            this.bookmarkdel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bookmarkdel.Name = "bookmarkdel";
-            this.bookmarkdel.ShadowDecoration.Parent = this.bookmarkdel;
-            this.bookmarkdel.Size = new System.Drawing.Size(39, 35);
-            this.bookmarkdel.TabIndex = 13;
+            this.closeall.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.closeall.BorderRadius = 10;
+            this.closeall.BorderThickness = 1;
+            this.closeall.CheckedState.Parent = this.closeall;
+            this.closeall.CustomImages.Parent = this.closeall;
+            this.closeall.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.closeall.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.closeall.ForeColor = System.Drawing.Color.White;
+            this.closeall.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.closeall.HoveredState.Parent = this.closeall;
+            this.closeall.Image = global::ZincBrowser.Properties.Resources.close_all;
+            this.closeall.Location = new System.Drawing.Point(47, 2);
+            this.closeall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.closeall.Name = "closeall";
+            this.closeall.ShadowDecoration.Parent = this.closeall;
+            this.closeall.Size = new System.Drawing.Size(39, 35);
+            this.closeall.TabIndex = 1;
+            this.closeall.Click += new System.EventHandler(this.closeall_Click);
+            // 
+            // newtab
+            // 
+            this.newtab.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.newtab.BorderRadius = 10;
+            this.newtab.BorderThickness = 1;
+            this.newtab.CheckedState.Parent = this.newtab;
+            this.newtab.CustomImages.Parent = this.newtab;
+            this.newtab.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.newtab.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.newtab.ForeColor = System.Drawing.Color.White;
+            this.newtab.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.newtab.HoveredState.Parent = this.newtab;
+            this.newtab.Image = global::ZincBrowser.Properties.Resources._new;
+            this.newtab.Location = new System.Drawing.Point(3, 2);
+            this.newtab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.newtab.Name = "newtab";
+            this.newtab.ShadowDecoration.Parent = this.newtab;
+            this.newtab.Size = new System.Drawing.Size(39, 35);
+            this.newtab.TabIndex = 0;
+            this.newtab.Click += new System.EventHandler(this.newtab_Click);
+            // 
+            // incognito
+            // 
+            this.incognito.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.incognito.BorderRadius = 10;
+            this.incognito.BorderThickness = 1;
+            this.incognito.CheckedState.Parent = this.incognito;
+            this.incognito.CustomImages.Parent = this.incognito;
+            this.incognito.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.incognito.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.incognito.ForeColor = System.Drawing.Color.White;
+            this.incognito.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.incognito.HoveredState.Parent = this.incognito;
+            this.incognito.Image = global::ZincBrowser.Properties.Resources.incognito;
+            this.incognito.Location = new System.Drawing.Point(92, 2);
+            this.incognito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.incognito.Name = "incognito";
+            this.incognito.ShadowDecoration.Parent = this.incognito;
+            this.incognito.Size = new System.Drawing.Size(39, 35);
+            this.incognito.TabIndex = 6;
+            this.incognito.Click += new System.EventHandler(this.incognito_Click);
+            // 
+            // gh
+            // 
+            this.gh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.gh.BorderRadius = 10;
+            this.gh.BorderThickness = 1;
+            this.gh.CheckedState.Parent = this.gh;
+            this.gh.CustomImages.Parent = this.gh;
+            this.gh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.gh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gh.ForeColor = System.Drawing.Color.White;
+            this.gh.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.gh.HoveredState.Parent = this.gh;
+            this.gh.Image = global::ZincBrowser.Properties.Resources.github;
+            this.gh.Location = new System.Drawing.Point(47, 2);
+            this.gh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gh.Name = "gh";
+            this.gh.ShadowDecoration.Parent = this.gh;
+            this.gh.Size = new System.Drawing.Size(39, 35);
+            this.gh.TabIndex = 5;
+            this.gh.Click += new System.EventHandler(this.gh_Click);
+            // 
+            // customisation
+            // 
+            this.customisation.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.customisation.BorderRadius = 10;
+            this.customisation.BorderThickness = 1;
+            this.customisation.CheckedState.Parent = this.customisation;
+            this.customisation.CustomImages.Parent = this.customisation;
+            this.customisation.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.customisation.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.customisation.ForeColor = System.Drawing.Color.White;
+            this.customisation.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.customisation.HoveredState.Parent = this.customisation;
+            this.customisation.Image = global::ZincBrowser.Properties.Resources.settings;
+            this.customisation.Location = new System.Drawing.Point(3, 2);
+            this.customisation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.customisation.Name = "customisation";
+            this.customisation.ShadowDecoration.Parent = this.customisation;
+            this.customisation.Size = new System.Drawing.Size(39, 35);
+            this.customisation.TabIndex = 4;
+            this.customisation.Click += new System.EventHandler(this.customisation_Click);
+            // 
+            // forward
+            // 
+            this.forward.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.forward.BorderRadius = 10;
+            this.forward.BorderThickness = 1;
+            this.forward.CheckedState.Parent = this.forward;
+            this.forward.CustomImages.Parent = this.forward;
+            this.forward.Enabled = false;
+            this.forward.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.forward.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.forward.ForeColor = System.Drawing.Color.White;
+            this.forward.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.forward.HoveredState.Parent = this.forward;
+            this.forward.Image = global::ZincBrowser.Properties.Resources.forward;
+            this.forward.Location = new System.Drawing.Point(92, 2);
+            this.forward.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.forward.Name = "forward";
+            this.forward.ShadowDecoration.Parent = this.forward;
+            this.forward.Size = new System.Drawing.Size(39, 35);
+            this.forward.TabIndex = 3;
+            this.forward.Click += new System.EventHandler(this.forward_Click);
+            // 
+            // reload
+            // 
+            this.reload.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.reload.BorderRadius = 10;
+            this.reload.BorderThickness = 1;
+            this.reload.CheckedState.Parent = this.reload;
+            this.reload.CustomImages.Parent = this.reload;
+            this.reload.Enabled = false;
+            this.reload.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.reload.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.reload.ForeColor = System.Drawing.Color.White;
+            this.reload.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.reload.HoveredState.Parent = this.reload;
+            this.reload.Image = global::ZincBrowser.Properties.Resources.reload;
+            this.reload.Location = new System.Drawing.Point(47, 2);
+            this.reload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.reload.Name = "reload";
+            this.reload.ShadowDecoration.Parent = this.reload;
+            this.reload.Size = new System.Drawing.Size(39, 35);
+            this.reload.TabIndex = 2;
+            this.reload.Click += new System.EventHandler(this.reload_Click);
+            // 
+            // backward
+            // 
+            this.backward.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.backward.BorderRadius = 10;
+            this.backward.BorderThickness = 1;
+            this.backward.CheckedState.Parent = this.backward;
+            this.backward.CustomImages.Parent = this.backward;
+            this.backward.Enabled = false;
+            this.backward.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.backward.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.backward.ForeColor = System.Drawing.Color.White;
+            this.backward.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.backward.HoveredState.Parent = this.backward;
+            this.backward.Image = global::ZincBrowser.Properties.Resources.back;
+            this.backward.Location = new System.Drawing.Point(3, 2);
+            this.backward.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.backward.Name = "backward";
+            this.backward.ShadowDecoration.Parent = this.backward;
+            this.backward.Size = new System.Drawing.Size(39, 35);
+            this.backward.TabIndex = 2;
+            this.backward.Click += new System.EventHandler(this.backward_Click);
             // 
             // Form1
             // 
@@ -572,7 +575,7 @@
         public Siticone.UI.WinForms.SiticoneButton forward;
         public Siticone.UI.WinForms.SiticoneButton backward;
         public Siticone.UI.WinForms.SiticoneButton customisation;
-        public Siticone.UI.WinForms.SiticoneButton searchhistory;
+        public Siticone.UI.WinForms.SiticoneButton gh;
         public Siticone.UI.WinForms.SiticoneButton incognito;
         private Siticone.UI.WinForms.SiticoneButton minside;
         private Siticone.UI.WinForms.SiticonePanel misccontrols;

@@ -1,24 +1,23 @@
-﻿using Microsoft.Web.WebView2.WinForms;
+﻿using HtmlAgilityPack;
+using Microsoft.Web.WebView2.WinForms;
 using Siticone.UI.WinForms;
-using Siticone.UI.WinForms.Suite;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Net.Http;
-using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Windows.Forms;
 using ZincBrowser.Properties;
-using static System.Net.WebRequestMethods;
-using static System.Windows.Forms.LinkLabel;
 using static WinBlur.UI;
 
 namespace ZincBrowser
 {
     public partial class Form1 : Form
     {
+        ColorMgr c = new ColorMgr();
+        SecondaryStorageMgr ssmgr = new SecondaryStorageMgr();
+
         public List<TabHandle> tabhandles = new List<TabHandle>();
         public List<WebView2> pages = new List<WebView2>();
         public WebView2 currentPage = null; // handle
@@ -26,10 +25,7 @@ namespace ZincBrowser
         public List<string> history = new List<string>(); // too lazy, implement later
 
         public bool sidebarMinimised = false;
-        public bool incognitoMode = false;
         public bool settingsOpen = false;
-
-        ColorMgr c = new ColorMgr();
 
         public Form1()
         {
@@ -38,11 +34,11 @@ namespace ZincBrowser
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.MaterialStyle == "tabbed")
+            if (Settings.Default.MaterialStyle == "tabbed")
             {
                 SetBlurStyle(cntrl: this, blurType: BlurType.Tabbed, designMode: Mode.DarkMode);
             }
-            if (Properties.Settings.Default.MaterialStyle == "mica")
+            if (Settings.Default.MaterialStyle == "mica")
             {
                 SetBlurStyle(cntrl: this, blurType: BlurType.Mica, designMode: Mode.DarkMode);
             }
@@ -64,7 +60,7 @@ namespace ZincBrowser
             addressbar.BorderColor = c.border;
 
             c.setButtonColors(incognito);
-            c.setButtonColors(searchhistory);
+            c.setButtonColors(gh);
             c.setButtonColors(customisation);
 
             c.setButtonColors(zoomin);
@@ -110,6 +106,47 @@ namespace ZincBrowser
                 zoomout.Enabled = true;
                 zoomlbl.Text = (currentPage.ZoomFactor * 100).ToString() + "%"; // convert zoomfactor max 2 to 200 and add %
                 bookmarkadd.Enabled = true;
+            }
+
+            foreach (Control page in pagearea.Controls)
+            {
+                if (page is WebView2)
+                {
+                    ((WebView2)page).SourceChanged += (s, ev) => Page_SourceChanged(sender, ev, (WebView2)page);
+                }
+            }
+        }
+
+        private async void Page_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e, WebView2 page)
+        {
+            if (e.IsNewDocument == true)
+            {
+                try
+                {
+                    using (HttpClient client = new HttpClient())
+                    {
+                        HttpResponseMessage response = await client.GetAsync(page.Source.ToString());
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string htmlContent = await response.Content.ReadAsStringAsync();
+
+                            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                            doc.LoadHtml(htmlContent);
+
+                            HtmlNode titleNode = doc.DocumentNode.SelectSingleNode("//title");
+
+                            if (titleNode != null)
+                            {
+                                ssmgr.writeSearch(titleNode.InnerText.Trim(), page.Source);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error fetching page title: {ex.Message}");
+                }
             }
         }
 
@@ -168,13 +205,13 @@ namespace ZincBrowser
             customisation.Width = 78;
             customisation.Location = new Point(5, 5);
 
-            searchhistory.Height = customisation.Height;
-            searchhistory.Width = 78;
-            searchhistory.Location = new Point(customisation.Width + 10, 5);
+            gh.Height = customisation.Height;
+            gh.Width = 78;
+            gh.Location = new Point(customisation.Width + 10, 5);
 
-            incognito.Height = searchhistory.Height;
+            incognito.Height = gh.Height;
             incognito.Width = 78;
-            incognito.Location = new Point(customisation.Width + searchhistory.Width + 15, 5);
+            incognito.Location = new Point(customisation.Width + gh.Width + 15, 5);
 
             misccontrols.Height = pagecontrolarea.Height;
             misccontrols.Width = pagecontrolarea.Width;
@@ -208,9 +245,14 @@ namespace ZincBrowser
 
         private void newtab_Click(object sender, EventArgs e)
         {
+            createTab("https://www.google.com/");
+        }
+
+        public void createTab(string url)
+        {
             WebView2 page = new WebView2();
 
-            page.Source = new Uri("https://www.google.com/");
+            page.Source = new Uri(url);
             page.Parent = pagearea;
             page.Size = new Size(pagearea.Width - 10, pagearea.Height - 10);
             page.Location = new Point(5, 5);
@@ -223,7 +265,7 @@ namespace ZincBrowser
             eli.BorderRadius = Settings.Default.BorderRadius;
             eli.SetElipse(page);
 
-            TabHandle tabhandle = new TabHandle("https://www.google.com/", page, addressbar);
+            TabHandle tabhandle = new TabHandle(url, page, addressbar);
             tabhandle.Parent = tablist;
 
             tabhandles.Add(tabhandle);
@@ -241,30 +283,41 @@ namespace ZincBrowser
             }
             tablist.Show();
             pagearea.Show();
+
+            currentPage = null;
         }
 
         private async void addressbar_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && currentPage == null)
-            { 
+            {
                 WebView2 page = new WebView2();
 
                 using (HttpClient client = new HttpClient())
                 {
-                    HttpResponseMessage response = await client.GetAsync("https://" + addressbar.Text);
+                    try
+                    {
+                        HttpResponseMessage response = await client.GetAsync("https://" + addressbar.Text);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            page.Source = new Uri("https://" + addressbar.Text);
+                        }
+                        else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                        {
+                            page.Source = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(addressbar.Text)}");
+                        }
+                        else
+                        {
+                            page.Source = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(addressbar.Text)}");
+                        }
+                    }
+                    catch
+                    {
+                        // no clue what im doing at this point
+                        page.Source = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(addressbar.Text)}");
+                    }
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        page.Source = new Uri("https://" + addressbar.Text);
-                    }
-                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    {
-                        page.Source = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(addressbar.Text)}");
-                    }
-                    else
-                    {
-                        page.Source = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(addressbar.Text)}");
-                    }
+
                 }
 
                 page.Parent = pagearea;
@@ -359,7 +412,7 @@ namespace ZincBrowser
             }
             else
             {
-                SettingsWindow sw = new SettingsWindow();
+                SettingsWindow sw = new SettingsWindow("customisation");
                 settingsWindowHandle = sw;
                 sw.Show();
             }
@@ -367,7 +420,7 @@ namespace ZincBrowser
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            System.IO.File.WriteAllLines(".\\history.ln", history);
+
         }
 
         private void zoomin_Click(object sender, EventArgs e)
@@ -378,6 +431,24 @@ namespace ZincBrowser
         private void zoomout_Click(object sender, EventArgs e)
         {
             currentPage.ZoomFactor = currentPage.ZoomFactor - 0.05;
+        }
+
+        private void incognito_Click(object sender, EventArgs e)
+        {
+            ssmgr.incognitoMode = !ssmgr.incognitoMode;
+            if (ssmgr.incognitoMode)
+            {
+                incognito.Image = Resources.incognito_active;
+            }
+            else
+            {
+                incognito.Image = Resources.incognito;
+            }
+        }
+
+        private void gh_Click(object sender, EventArgs e)
+        {
+            createTab("https://github.com/Dismalitie/Zinc");
         }
     }
 }

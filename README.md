@@ -1,14 +1,12 @@
 # Zinc
 A web browser, built for personalisation.
 
-> [!CAUTION]
-> This version is very likely to break, has a bunch of missing features and a crappy, uncommented codebase.
-
-# Changelog: `r3b`
+# Changelog: `r4b`
 
 ```ini
-[+] Reworked file structore for secondary storage
-[+] Added preset themes to customisation menu
+[+] Added search history system
+[+] Added theme customisation options
+[+] Added GitHub button that leads to the Zinc repo
 ```
 
 # Todo

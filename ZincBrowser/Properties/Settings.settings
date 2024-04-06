@@ -32,18 +32,6 @@
     <Setting Name="MaterialStyle" Type="System.String" Scope="User">
       <Value Profile="(Default)">tabbed</Value>
     </Setting>
-    <Setting Name="Dev_UseBetaUpdateChannel" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="Dev_EnableExtensions" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="Dev_EnableThemeLoader" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="Dev_EnableTransfers" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="AccentColor_R" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">162</Value>
     </Setting>
