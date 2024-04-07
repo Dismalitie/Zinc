@@ -4,6 +4,7 @@ using Siticone.UI.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -33,7 +34,7 @@ namespace ZincBrowser
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        { 
             if (Settings.Default.MaterialStyle == "tabbed")
             {
                 SetBlurStyle(cntrl: this, blurType: BlurType.Tabbed, designMode: Mode.DarkMode);
@@ -316,8 +317,6 @@ namespace ZincBrowser
                         // no clue what im doing at this point
                         page.Source = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(addressbar.Text)}");
                     }
-
-
                 }
 
                 page.Parent = pagearea;
@@ -404,23 +403,15 @@ namespace ZincBrowser
 
         private void customisation_Click(object sender, EventArgs e)
         {
-            settingsOpen = !settingsOpen;
-            if (!settingsOpen)
-            {
-                settingsWindowHandle.Dispose();
-                settingsWindowHandle = null;
-            }
-            else
-            {
-                SettingsWindow sw = new SettingsWindow("customisation");
-                settingsWindowHandle = sw;
-                sw.Show();
-            }
+            SettingsWindow sw = new SettingsWindow("customisation");
+            settingsWindowHandle = sw;
+            sw.Show();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            Properties.Settings.Default.LastWinSz = Size;
+            Properties.Settings.Default.LastWinPos = Location;
         }
 
         private void zoomin_Click(object sender, EventArgs e)
@@ -449,6 +440,11 @@ namespace ZincBrowser
         private void gh_Click(object sender, EventArgs e)
         {
             createTab("https://github.com/Dismalitie/Zinc");
+        }
+
+        private void bookmarks_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

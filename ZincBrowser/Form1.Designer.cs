@@ -70,8 +70,8 @@
             this.tablist.Location = new System.Drawing.Point(0, 0);
             this.tablist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablist.Name = "tablist";
-            this.tablist.Padding = new System.Windows.Forms.Padding(5);
-            this.tablist.Size = new System.Drawing.Size(175, 424);
+            this.tablist.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tablist.Size = new System.Drawing.Size(153, 450);
             this.tablist.TabIndex = 0;
             // 
             // pagearea
@@ -81,11 +81,11 @@
             this.pagearea.BorderThickness = 1;
             this.pagearea.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.pagearea.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.pagearea.Location = new System.Drawing.Point(194, 58);
+            this.pagearea.Location = new System.Drawing.Point(170, 62);
             this.pagearea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pagearea.Name = "pagearea";
             this.pagearea.ShadowDecoration.Parent = this.pagearea;
-            this.pagearea.Size = new System.Drawing.Size(719, 424);
+            this.pagearea.Size = new System.Drawing.Size(629, 450);
             this.pagearea.TabIndex = 2;
             // 
             // pagecontrolarea
@@ -99,11 +99,11 @@
             this.pagecontrolarea.Controls.Add(this.backward);
             this.pagecontrolarea.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.pagecontrolarea.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.pagecontrolarea.Location = new System.Drawing.Point(194, 10);
+            this.pagecontrolarea.Location = new System.Drawing.Point(170, 11);
             this.pagecontrolarea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pagecontrolarea.Name = "pagecontrolarea";
             this.pagecontrolarea.ShadowDecoration.Parent = this.pagecontrolarea;
-            this.pagecontrolarea.Size = new System.Drawing.Size(719, 40);
+            this.pagecontrolarea.Size = new System.Drawing.Size(629, 42);
             this.pagecontrolarea.TabIndex = 2;
             // 
             // addressbar
@@ -123,14 +123,14 @@
             this.addressbar.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.addressbar.HoveredState.Parent = this.addressbar;
             this.addressbar.IconLeftOffset = new System.Drawing.Point(10, 0);
-            this.addressbar.Location = new System.Drawing.Point(137, 4);
+            this.addressbar.Location = new System.Drawing.Point(120, 4);
             this.addressbar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addressbar.Name = "addressbar";
             this.addressbar.PasswordChar = '\0';
             this.addressbar.PlaceholderText = "Search or type a URL...";
             this.addressbar.SelectedText = "";
             this.addressbar.ShadowDecoration.Parent = this.addressbar;
-            this.addressbar.Size = new System.Drawing.Size(579, 32);
+            this.addressbar.Size = new System.Drawing.Size(507, 34);
             this.addressbar.TabIndex = 0;
             this.addressbar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addressbar_KeyDown);
             // 
@@ -144,11 +144,11 @@
             this.menu.Controls.Add(this.customisation);
             this.menu.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.menu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.menu.Location = new System.Drawing.Point(13, 487);
+            this.menu.Location = new System.Drawing.Point(11, 517);
             this.menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menu.Name = "menu";
             this.menu.ShadowDecoration.Parent = this.menu;
-            this.menu.Size = new System.Drawing.Size(172, 40);
+            this.menu.Size = new System.Drawing.Size(150, 42);
             this.menu.TabIndex = 3;
             // 
             // tabarea
@@ -159,11 +159,11 @@
             this.tabarea.Controls.Add(this.tablist);
             this.tabarea.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.tabarea.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tabarea.Location = new System.Drawing.Point(11, 58);
+            this.tabarea.Location = new System.Drawing.Point(10, 62);
             this.tabarea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabarea.Name = "tabarea";
             this.tabarea.ShadowDecoration.Parent = this.tabarea;
-            this.tabarea.Size = new System.Drawing.Size(175, 424);
+            this.tabarea.Size = new System.Drawing.Size(153, 450);
             this.tabarea.TabIndex = 4;
             // 
             // tabcontrolarea
@@ -176,11 +176,11 @@
             this.tabcontrolarea.Controls.Add(this.newtab);
             this.tabcontrolarea.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.tabcontrolarea.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tabcontrolarea.Location = new System.Drawing.Point(11, 10);
+            this.tabcontrolarea.Location = new System.Drawing.Point(10, 11);
             this.tabcontrolarea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabcontrolarea.Name = "tabcontrolarea";
             this.tabcontrolarea.ShadowDecoration.Parent = this.tabcontrolarea;
-            this.tabcontrolarea.Size = new System.Drawing.Size(175, 40);
+            this.tabcontrolarea.Size = new System.Drawing.Size(153, 42);
             this.tabcontrolarea.TabIndex = 4;
             // 
             // addr_e
@@ -206,11 +206,11 @@
             this.misccontrols.Controls.Add(this.zoomout);
             this.misccontrols.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.misccontrols.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.misccontrols.Location = new System.Drawing.Point(194, 487);
+            this.misccontrols.Location = new System.Drawing.Point(170, 517);
             this.misccontrols.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.misccontrols.Name = "misccontrols";
             this.misccontrols.ShadowDecoration.Parent = this.misccontrols;
-            this.misccontrols.Size = new System.Drawing.Size(719, 40);
+            this.misccontrols.Size = new System.Drawing.Size(629, 42);
             this.misccontrols.TabIndex = 4;
             // 
             // zoomlbl
@@ -218,7 +218,7 @@
             this.zoomlbl.AutoSize = true;
             this.zoomlbl.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.zoomlbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.zoomlbl.Location = new System.Drawing.Point(576, 10);
+            this.zoomlbl.Location = new System.Drawing.Point(504, 11);
             this.zoomlbl.Name = "zoomlbl";
             this.zoomlbl.Size = new System.Drawing.Size(45, 20);
             this.zoomlbl.TabIndex = 12;
@@ -243,11 +243,11 @@
             this.bookmarkdel.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.bookmarkdel.HoveredState.Parent = this.bookmarkdel;
             this.bookmarkdel.Image = global::ZincBrowser.Properties.Resources.bookmark_minus;
-            this.bookmarkdel.Location = new System.Drawing.Point(92, 2);
+            this.bookmarkdel.Location = new System.Drawing.Point(80, 2);
             this.bookmarkdel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bookmarkdel.Name = "bookmarkdel";
             this.bookmarkdel.ShadowDecoration.Parent = this.bookmarkdel;
-            this.bookmarkdel.Size = new System.Drawing.Size(39, 35);
+            this.bookmarkdel.Size = new System.Drawing.Size(34, 37);
             this.bookmarkdel.TabIndex = 13;
             // 
             // bookmarkadd
@@ -264,11 +264,11 @@
             this.bookmarkadd.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.bookmarkadd.HoveredState.Parent = this.bookmarkadd;
             this.bookmarkadd.Image = global::ZincBrowser.Properties.Resources.bookmark_plus;
-            this.bookmarkadd.Location = new System.Drawing.Point(47, 2);
+            this.bookmarkadd.Location = new System.Drawing.Point(41, 2);
             this.bookmarkadd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bookmarkadd.Name = "bookmarkadd";
             this.bookmarkadd.ShadowDecoration.Parent = this.bookmarkadd;
-            this.bookmarkadd.Size = new System.Drawing.Size(39, 35);
+            this.bookmarkadd.Size = new System.Drawing.Size(34, 37);
             this.bookmarkadd.TabIndex = 10;
             // 
             // bookmarks
@@ -288,8 +288,9 @@
             this.bookmarks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bookmarks.Name = "bookmarks";
             this.bookmarks.ShadowDecoration.Parent = this.bookmarks;
-            this.bookmarks.Size = new System.Drawing.Size(39, 35);
+            this.bookmarks.Size = new System.Drawing.Size(34, 37);
             this.bookmarks.TabIndex = 9;
+            this.bookmarks.Click += new System.EventHandler(this.bookmarks_Click);
             // 
             // zoomin
             // 
@@ -305,11 +306,11 @@
             this.zoomin.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.zoomin.HoveredState.Parent = this.zoomin;
             this.zoomin.Image = global::ZincBrowser.Properties.Resources.zoom_in;
-            this.zoomin.Location = new System.Drawing.Point(676, 2);
+            this.zoomin.Location = new System.Drawing.Point(592, 2);
             this.zoomin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.zoomin.Name = "zoomin";
             this.zoomin.ShadowDecoration.Parent = this.zoomin;
-            this.zoomin.Size = new System.Drawing.Size(39, 35);
+            this.zoomin.Size = new System.Drawing.Size(34, 37);
             this.zoomin.TabIndex = 8;
             this.zoomin.Click += new System.EventHandler(this.zoomin_Click);
             // 
@@ -327,11 +328,11 @@
             this.zoomout.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.zoomout.HoveredState.Parent = this.zoomout;
             this.zoomout.Image = global::ZincBrowser.Properties.Resources.zoom_out;
-            this.zoomout.Location = new System.Drawing.Point(632, 2);
+            this.zoomout.Location = new System.Drawing.Point(553, 2);
             this.zoomout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.zoomout.Name = "zoomout";
             this.zoomout.ShadowDecoration.Parent = this.zoomout;
-            this.zoomout.Size = new System.Drawing.Size(39, 35);
+            this.zoomout.Size = new System.Drawing.Size(34, 37);
             this.zoomout.TabIndex = 7;
             this.zoomout.Click += new System.EventHandler(this.zoomout_Click);
             // 
@@ -348,11 +349,11 @@
             this.minside.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.minside.HoveredState.Parent = this.minside;
             this.minside.Image = global::ZincBrowser.Properties.Resources.sidebar_close;
-            this.minside.Location = new System.Drawing.Point(92, 2);
+            this.minside.Location = new System.Drawing.Point(80, 2);
             this.minside.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minside.Name = "minside";
             this.minside.ShadowDecoration.Parent = this.minside;
-            this.minside.Size = new System.Drawing.Size(39, 35);
+            this.minside.Size = new System.Drawing.Size(34, 37);
             this.minside.TabIndex = 2;
             this.minside.Click += new System.EventHandler(this.minside_Click);
             // 
@@ -369,11 +370,11 @@
             this.closeall.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.closeall.HoveredState.Parent = this.closeall;
             this.closeall.Image = global::ZincBrowser.Properties.Resources.close_all;
-            this.closeall.Location = new System.Drawing.Point(47, 2);
+            this.closeall.Location = new System.Drawing.Point(41, 2);
             this.closeall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.closeall.Name = "closeall";
             this.closeall.ShadowDecoration.Parent = this.closeall;
-            this.closeall.Size = new System.Drawing.Size(39, 35);
+            this.closeall.Size = new System.Drawing.Size(34, 37);
             this.closeall.TabIndex = 1;
             this.closeall.Click += new System.EventHandler(this.closeall_Click);
             // 
@@ -394,7 +395,7 @@
             this.newtab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.newtab.Name = "newtab";
             this.newtab.ShadowDecoration.Parent = this.newtab;
-            this.newtab.Size = new System.Drawing.Size(39, 35);
+            this.newtab.Size = new System.Drawing.Size(34, 37);
             this.newtab.TabIndex = 0;
             this.newtab.Click += new System.EventHandler(this.newtab_Click);
             // 
@@ -411,11 +412,11 @@
             this.incognito.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.incognito.HoveredState.Parent = this.incognito;
             this.incognito.Image = global::ZincBrowser.Properties.Resources.incognito;
-            this.incognito.Location = new System.Drawing.Point(92, 2);
+            this.incognito.Location = new System.Drawing.Point(80, 2);
             this.incognito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.incognito.Name = "incognito";
             this.incognito.ShadowDecoration.Parent = this.incognito;
-            this.incognito.Size = new System.Drawing.Size(39, 35);
+            this.incognito.Size = new System.Drawing.Size(34, 37);
             this.incognito.TabIndex = 6;
             this.incognito.Click += new System.EventHandler(this.incognito_Click);
             // 
@@ -432,11 +433,11 @@
             this.gh.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.gh.HoveredState.Parent = this.gh;
             this.gh.Image = global::ZincBrowser.Properties.Resources.github;
-            this.gh.Location = new System.Drawing.Point(47, 2);
+            this.gh.Location = new System.Drawing.Point(41, 2);
             this.gh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gh.Name = "gh";
             this.gh.ShadowDecoration.Parent = this.gh;
-            this.gh.Size = new System.Drawing.Size(39, 35);
+            this.gh.Size = new System.Drawing.Size(34, 37);
             this.gh.TabIndex = 5;
             this.gh.Click += new System.EventHandler(this.gh_Click);
             // 
@@ -457,7 +458,7 @@
             this.customisation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.customisation.Name = "customisation";
             this.customisation.ShadowDecoration.Parent = this.customisation;
-            this.customisation.Size = new System.Drawing.Size(39, 35);
+            this.customisation.Size = new System.Drawing.Size(34, 37);
             this.customisation.TabIndex = 4;
             this.customisation.Click += new System.EventHandler(this.customisation_Click);
             // 
@@ -475,11 +476,11 @@
             this.forward.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.forward.HoveredState.Parent = this.forward;
             this.forward.Image = global::ZincBrowser.Properties.Resources.forward;
-            this.forward.Location = new System.Drawing.Point(92, 2);
+            this.forward.Location = new System.Drawing.Point(80, 2);
             this.forward.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.forward.Name = "forward";
             this.forward.ShadowDecoration.Parent = this.forward;
-            this.forward.Size = new System.Drawing.Size(39, 35);
+            this.forward.Size = new System.Drawing.Size(34, 37);
             this.forward.TabIndex = 3;
             this.forward.Click += new System.EventHandler(this.forward_Click);
             // 
@@ -497,11 +498,11 @@
             this.reload.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.reload.HoveredState.Parent = this.reload;
             this.reload.Image = global::ZincBrowser.Properties.Resources.reload;
-            this.reload.Location = new System.Drawing.Point(47, 2);
+            this.reload.Location = new System.Drawing.Point(41, 2);
             this.reload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reload.Name = "reload";
             this.reload.ShadowDecoration.Parent = this.reload;
-            this.reload.Size = new System.Drawing.Size(39, 35);
+            this.reload.Size = new System.Drawing.Size(34, 37);
             this.reload.TabIndex = 2;
             this.reload.Click += new System.EventHandler(this.reload_Click);
             // 
@@ -523,23 +524,24 @@
             this.backward.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backward.Name = "backward";
             this.backward.ShadowDecoration.Parent = this.backward;
-            this.backward.Size = new System.Drawing.Size(39, 35);
+            this.backward.Size = new System.Drawing.Size(34, 37);
             this.backward.TabIndex = 2;
             this.backward.Click += new System.EventHandler(this.backward_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(924, 537);
+            this.ClientSize = new System.Drawing.Size(808, 571);
             this.Controls.Add(this.misccontrols);
             this.Controls.Add(this.tabcontrolarea);
             this.Controls.Add(this.tabarea);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.pagecontrolarea);
             this.Controls.Add(this.pagearea);
+            this.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";

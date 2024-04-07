@@ -1,12 +1,17 @@
-# Zinc
-A web browser, built for personalisation.
+<div align="center">
+  
+![zinc](image.png)
 
-# Changelog: `r4b`
+
+  # Zinc
+
+  A lightweight, open-source web browser built for customisation.
+</div>
+
+# Changelog: `r4b_patch1`
 
 ```ini
-[+] Added search history system
-[+] Added theme customisation options
-[+] Added GitHub button that leads to the Zinc repo
+[+] Just a few minor patches for UX
 ```
 
 # Todo

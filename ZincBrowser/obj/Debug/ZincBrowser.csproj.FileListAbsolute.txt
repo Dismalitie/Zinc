@@ -1,9 +1,6 @@
 X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
 X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
 X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
-X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\ZincBrowser.exe.config
-X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\ZincBrowser.exe
-X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\ZincBrowser.pdb
 X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\Microsoft.Web.WebView2.Core.dll
 X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
 X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
@@ -17,8 +14,6 @@ X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.Properties.Resources.r
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.csproj.GenerateResource.cache
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.csproj.CoreCompileInputs.cache
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrow.B03F26D8.Up2Date
-X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.exe
-X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.pdb
 X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\Siticone.UI.dll
 X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\HtmlAgilityPack.dll
 X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\HtmlAgilityPack.pdb
@@ -31,3 +26,8 @@ X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.UCs.ThemeHandle.resour
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.UCs.TabHandle.resources
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.Menus.Menu_History.resources
 X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\ZincBrowser.UCs.SearchHandle.resources
+X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\Zinc.exe.config
+X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\Zinc.exe
+X:\VS\repos\ZincBrowser\ZincBrowser\bin\Debug\Zinc.pdb
+X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\Zinc.exe
+X:\VS\repos\ZincBrowser\ZincBrowser\obj\Debug\Zinc.pdb
