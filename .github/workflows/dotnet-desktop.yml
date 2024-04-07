@@ -1,0 +1,42 @@
+name: Build .NET Desktop WinForms App
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x' # Update to your desired .NET version
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration ${{ matrix.configuration }}
+        env:
+          configuration: ${{ matrix.configuration }}
+
+      # Optionally, you can run tests here if you have them
+
+      - name: Publish artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: WinFormsApp
+          path: |
+            bin/Release/ # Update with the path to your built artifacts
+            # Add additional paths if needed
